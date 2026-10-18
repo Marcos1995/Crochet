@@ -7,9 +7,9 @@
 - Vista local: `index.html`
 
 ## Estado
-- `index.html` trae el patrón de un vestido y un traje (pantalón y chaqueta) para una muñeca de crochet de 25 cm, y cómo ponérselos.
-- Vista en GitHub Pages (main, `/`). Antes la URL respondía 404 porque Pages no estaba activado.
-- Supuesto: no había medidas en el pedido. La talla está fijada; la tabla sirve para comprobar la muñeca antes de tejer.
+- `index.html` trae un vestido de novia simple y un traje (pantalón y chaqueta) calculados desde el cuerpo de la tabla. Al cambiar los cm, cambian las vueltas.
+- Vista en GitHub Pages (main, `/`).
+- La foto de la muñeca no dejó centímetros. El cuerpo de partida es 25 cm, pecho 16 cm y cadera 18 cm.
 
 ## Stack
 - Un solo `index.html` (HTML, CSS y JS). Sin build ni dependencias.
@@ -21,5 +21,5 @@
 
 ## Notas para el agente
 - Talla y patrón: decisión en `docs/DECISIONES.md`. Aspecto: `DESIGN.md`.
-- No cambiar la talla ni convertir el patrón en calculadora salvo que haya medidas reales.
+- El cuerpo se edita en la tabla de `index.html`. No inventar otra talla.
 - Lean kit (ver AGENTS.md)

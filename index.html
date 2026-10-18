@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Vestido y traje para una muñeca de 25 cm</title>
+  <title>Vestido de novia y traje para la muñeca</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;800&display=swap" rel="stylesheet">
@@ -63,11 +63,11 @@
       line-height: 1.45;
     }
     h1, h2, h3 { font-weight: 800; letter-spacing: -0.04em; line-height: 0.95; margin: 0; }
-    h1 { font-size: clamp(2.5rem, 8vw, 5.4rem); max-width: 11ch; }
+    h1 { font-size: clamp(2.15rem, 8vw, 5.2rem); max-width: min(16ch, 100%); }
     h2 { font-size: clamp(2rem, 5vw, 3.4rem); max-width: 16ch; transform-origin: left center; }
     h3 { font-size: 1.35rem; letter-spacing: -0.03em; line-height: 1.1; }
     p, li { font-size: 1.05rem; }
-    p { max-width: 62ch; }
+    p { max-width: min(62ch, 100%); }
     a { color: inherit; }
     :focus-visible { outline: 3px solid #18E667; outline-offset: 3px; }
     .barra, .ancho { width: min(72rem, calc(100% - 2rem)); margin: 0 auto; }
@@ -113,6 +113,7 @@
       gap: 1.25rem;
       align-items: end;
     }
+    .hero-grid > *, .medidas-grid > *, .pasos > *, .traje-grid > * { min-width: 0; }
     .cifra {
       background: #18E667;
       color: #032612;
@@ -140,8 +141,8 @@
       padding: 0.9rem 1.25rem;
       border-radius: 999px;
     }
-    .enlace { font-weight: 600; margin-left: 1rem; }
-    .acciones { margin: 1.2rem 0 0; }
+    .enlace { font-weight: 600; }
+    .acciones { margin: 1.2rem 0 0; display: flex; flex-wrap: wrap; gap: 0.75rem 1rem; align-items: center; }
     .suave { color: var(--suave); }
     #medidas { background: var(--papel); }
     .medidas-grid {
@@ -181,6 +182,20 @@
       white-space: normal;
     }
     td:nth-child(2), th:nth-child(2) { white-space: nowrap; font-variant-numeric: tabular-nums; }
+    td input {
+      font: inherit;
+      font-variant-numeric: tabular-nums;
+      color: inherit;
+      background: transparent;
+      border: 0;
+      border-bottom: 2px solid var(--linea);
+      width: 3rem;
+      padding: 0;
+      border-radius: 0;
+      -moz-appearance: textfield;
+    }
+    td input::-webkit-outer-spin-button,
+    td input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
     #vestido { background: #18E667; color: #032612; }
     #vestido .suave { color: #032612; }
     .pasos, .traje-grid, .orden {
@@ -224,7 +239,7 @@
       .pasos .lleno { grid-column: 1 / -1; }
       .traje-grid { grid-template-columns: 1fr 1fr; align-items: start; }
       .orden { grid-template-columns: repeat(3, 1fr); }
-      h1 { max-width: 12ch; }
+      h1 { max-width: 18ch; }
     }
     @media (min-width: 1280px) {
       .ancho, .barra, footer { width: min(72rem, calc(100% - 4rem)); }
@@ -262,14 +277,14 @@
       <div class="ancho hero-grid">
         <div class="cifra">
           <span>Altura de la muñeca</span>
-          <strong>25</strong>
+          <strong data-k="altura">25</strong>
           <span>centímetros</span>
         </div>
         <div>
-          <h1>Vestido y traje para una muñeca de 25 cm</h1>
-          <p>Para las muñecas de tu curúmi. No había medidas en el encargo: el patrón es para una muñeca de crochet ya armada, de 25 cm de alto, pecho de 16 cm y cadera de 18 cm. El vestido y el traje son dos conjuntos.</p>
-          <p class="suave">Aguja de 3,0 mm y algodón de grosor medio (grupo 3). Un ovillo de 50 g alcanza para el vestido; otro, para el pantalón y la chaqueta. Muestra: 20 puntos bajos y 22 vueltas = 10 cm. 16 puntos altos y 8 vueltas = 10 cm.</p>
-          <p class="acciones"><a class="accion" href="#vestido">Empezar el vestido</a> <a class="enlace" href="#traje">Ver el traje</a></p>
+          <h1>Vestido de novia y traje, a la medida del cuerpo</h1>
+          <p>Para las muñecas de tu curúmi. El cuerpo es la tabla: si la foto de tu muñeca mide otra cosa, cambia los cm y las vueltas se rehacen. El vestido de novia es blanco y simple, sin encaje. El traje es pantalón y chaqueta.</p>
+          <p class="suave">Aguja de 3,0 mm y algodón de grosor medio (grupo 3). Un ovillo de 50 g en blanco o crudo para el vestido; otro, del color del traje. Muestra: 20 puntos bajos y 22 vueltas = 10 cm. 16 puntos altos y 8 vueltas = 10 cm.</p>
+          <p class="acciones"><a class="accion" href="#vestido">Empezar el vestido de novia</a> <a class="enlace" href="#traje">Ver el traje</a></p>
         </div>
         <svg class="gancho" viewBox="0 0 80 140" role="img" aria-label="Gancho de crochet">
           <path d="M48 8c10 8 14 18 10 28-6 16-22 20-22 36 0 14 16 18 16 32 0 10-8 18-20 22" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"></path>
@@ -290,7 +305,7 @@
           <div>
             <div class="tabla-scroll">
               <table>
-                <caption>Medidas de la muñeca. Si el pecho no ronda los 16 cm, este patrón no le sienta.</caption>
+                <caption>Cuerpo de la muñeca. Cambia un cm y el vestido de novia y el traje se ajustan.</caption>
                 <thead>
                   <tr>
                     <th aria-sort="none"><button type="button">Pieza <span aria-hidden="true"></span></button></th>
@@ -301,77 +316,77 @@
                 <tbody>
                   <tr>
                     <td data-n="Altura">Altura</td>
-                    <td data-n="25">25</td>
+                    <td data-n="25"><input type="number" min="8" max="60" step="0.5" value="25" data-m="altura" aria-label="Altura en cm"></td>
                     <td data-n="Talla de la muñeca">Talla de la muñeca</td>
                   </tr>
                   <tr>
                     <td data-n="Cabeza">Cabeza, contorno</td>
-                    <td data-n="27">27</td>
+                    <td data-n="27"><input type="number" min="8" max="60" step="0.5" value="27" data-m="cabeza" aria-label="Cabeza en cm"></td>
                     <td data-n="La ropa no pasa por la cabeza">La ropa no pasa por la cabeza</td>
                   </tr>
                   <tr>
                     <td data-n="Cuello">Cuello, contorno</td>
-                    <td data-n="10">10</td>
+                    <td data-n="10"><input type="number" min="4" max="40" step="0.5" value="10" data-m="cuello" aria-label="Cuello en cm"></td>
                     <td data-n="Escote">Escote del vestido y de la chaqueta</td>
                   </tr>
                   <tr>
                     <td data-n="Pecho">Pecho, contorno</td>
-                    <td data-n="16">16</td>
+                    <td data-n="16"><input type="number" min="6" max="40" step="0.5" value="16" data-m="pecho" aria-label="Pecho en cm"></td>
                     <td data-n="Cuerpo">Cuerpo del vestido y de la chaqueta</td>
                   </tr>
                   <tr>
                     <td data-n="Cintura">Cintura, contorno</td>
-                    <td data-n="14">14</td>
+                    <td data-n="14"><input type="number" min="6" max="40" step="0.5" value="14" data-m="cintura" aria-label="Cintura en cm"></td>
                     <td data-n="Falda y cordón">Arranque de la falda y cordón del pantalón</td>
                   </tr>
                   <tr>
                     <td data-n="Cadera">Cadera, contorno</td>
-                    <td data-n="18">18</td>
+                    <td data-n="18"><input type="number" min="6" max="50" step="0.5" value="18" data-m="cadera" aria-label="Cadera en cm"></td>
                     <td data-n="Que pase la falda">La falda y el pantalón tienen que pasar</td>
                   </tr>
                   <tr>
                     <td data-n="Pie">Pie, contorno</td>
-                    <td data-n="7">7</td>
+                    <td data-n="7"><input type="number" min="3" max="20" step="0.5" value="7" data-m="pie" aria-label="Pie en cm"></td>
                     <td data-n="Entrada de la pernera">Por aquí entra la pernera</td>
                   </tr>
                   <tr>
                     <td data-n="Hombro a cintura">Hombro a cintura</td>
-                    <td data-n="6.5">6,5</td>
+                    <td data-n="6.5"><input type="number" min="3" max="20" step="0.5" value="6.5" data-m="hombroCintura" aria-label="Hombro a cintura en cm"></td>
                     <td data-n="Alto del cuerpo">Alto del cuerpo del vestido</td>
                   </tr>
                   <tr>
                     <td data-n="Hombro al bajo">Hombro al bajo</td>
-                    <td data-n="17">17</td>
-                    <td data-n="Largo del vestido">Largo del vestido</td>
+                    <td data-n="17"><input type="number" min="8" max="40" step="0.5" value="17" data-m="hombroBajo" aria-label="Hombro al bajo en cm"></td>
+                    <td data-n="Largo del vestido">Largo del vestido de novia</td>
                   </tr>
                   <tr>
                     <td data-n="Cintura al tobillo">Cintura al tobillo</td>
-                    <td data-n="12">12</td>
+                    <td data-n="12"><input type="number" min="6" max="30" step="0.5" value="12" data-m="cinturaTobillo" aria-label="Cintura al tobillo en cm"></td>
                     <td data-n="Largo del pantalón">Largo del pantalón</td>
                   </tr>
                   <tr>
                     <td data-n="Entrepierna">Entrepierna</td>
-                    <td data-n="8">8</td>
+                    <td data-n="8"><input type="number" min="4" max="25" step="0.5" value="8" data-m="entrepierna" aria-label="Entrepierna en cm"></td>
                     <td data-n="Pernera">Largo de cada pernera antes de unir</td>
                   </tr>
                   <tr>
                     <td data-n="Hombro a la muñeca">Hombro a la muñeca del brazo</td>
-                    <td data-n="8">8</td>
+                    <td data-n="8"><input type="number" min="3" max="25" step="0.5" value="8" data-m="manga" aria-label="Largo de manga en cm"></td>
                     <td data-n="Manga">Largo de la manga</td>
                   </tr>
                   <tr>
                     <td data-n="Brazo">Brazo, contorno</td>
-                    <td data-n="6.5">6,5</td>
+                    <td data-n="6.5"><input type="number" min="3" max="20" step="0.5" value="6.5" data-m="brazo" aria-label="Brazo en cm"></td>
                     <td data-n="Sisa y puño">Sisa y puño</td>
                   </tr>
                   <tr>
                     <td data-n="Muslo">Muslo, contorno</td>
-                    <td data-n="8">8</td>
+                    <td data-n="8"><input type="number" min="3" max="25" step="0.5" value="8" data-m="muslo" aria-label="Muslo en cm"></td>
                     <td data-n="Ancho de pernera">Ancho de la pernera</td>
                   </tr>
                   <tr>
                     <td data-n="Hombros">De hombro a hombro</td>
-                    <td data-n="8">8</td>
+                    <td data-n="8"><input type="number" min="3" max="25" step="0.5" value="8" data-m="hombros" aria-label="De hombro a hombro en cm"></td>
                     <td data-n="Espalda de la chaqueta">Espalda de la chaqueta</td>
                   </tr>
                 </tbody>
@@ -386,9 +401,9 @@
 
     <section id="vestido">
       <div class="ancho">
-        <h2>El vestido</h2>
+        <h2>Vestido de novia</h2>
         <div class="bloque">
-          <p>Abre por la espalda, así no hace falta pasarlo por la cabeza. Cerrado, el pecho mide unos 20 cm y el largo desde el hombro unos 17 cm. El bajo, unos 50 cm.</p>
+          <p>Blanco o crudo, sin encaje. Abre por la espalda, así no hace falta pasarlo por la cabeza. Cerrado, el pecho mide unos <span data-k="pechoCm">20</span> cm y el largo desde el hombro unos <span data-k="largo">17</span> cm. El bajo, unos <span data-k="bajoCm">50</span> cm. <span data-k="aviso">La cintura de la falda mide 20 cm y la cadera 18: el vestido pasa.</span></p>
           <svg class="vestido-dibujo" viewBox="0 0 200 150" role="img" aria-label="Tres rectángulos del cuerpo y la falda, con la espalda abierta">
             <rect x="8" y="8" width="48" height="52" fill="none" stroke="#032612" stroke-width="2"></rect>
             <rect x="76" y="8" width="48" height="52" fill="none" stroke="#032612" stroke-width="2"></rect>
@@ -399,37 +414,37 @@
             <article class="paso">
               <h3>Delantero</h3>
               <ol>
-                <li>Monta 19 cad.</li>
-                <li>V1: pb en la 2.ª cad desde la aguja y en cada cad. Quedan 18 pb.</li>
-                <li>V2 a V14: gira, 1 cad, 18 pb.</li>
+                <li>Monta <span data-k="frontCad">19</span> cad.</li>
+                <li>V1: pb en la 2.ª cad desde la aguja y en cada cad. Quedan <span data-k="front">18</span> pb.</li>
+                <li>V2 a V<span data-k="bodice">14</span>: gira, 1 cad, <span data-k="front">18</span> pb.</li>
                 <li>Corta el hilo.</li>
               </ol>
             </article>
             <article class="paso">
               <h3>Espalda, dos piezas</h3>
               <ol>
-                <li>Monta 14 cad.</li>
-                <li>V1: 13 pb.</li>
-                <li>V2 a V14: 13 pb.</li>
+                <li>Monta <span data-k="backCad">14</span> cad.</li>
+                <li>V1: <span data-k="back">13</span> pb.</li>
+                <li>V2 a V<span data-k="bodice">14</span>: <span data-k="back">13</span> pb.</li>
                 <li>Corta el hilo. Repite la segunda espalda.</li>
               </ol>
             </article>
             <article class="paso lleno">
               <h3>Hombros y costados</h3>
               <ul>
-                <li>En el borde de arriba de cada espalda, cose 5 pb del lado del costado (no del centro) a 5 pb de un extremo del delantero. El escote libre queda en 8 pb del delantero y 8 pb de cada espalda.</li>
-                <li>Cose cada costado desde la V9 hasta la V14. Las V1 a V8 quedan abiertas: es la sisa.</li>
+                <li>En el borde de arriba de cada espalda, cose <span data-k="hombro">5</span> pb del lado del costado (no del centro) a <span data-k="hombro">5</span> pb de un extremo del delantero. El escote libre queda en <span data-k="cuelloD">8</span> pb del delantero y <span data-k="cuelloE">8</span> pb de cada espalda.</li>
+                <li>Cose cada costado desde la V<span data-k="costura">9</span> hasta la V<span data-k="bodice">14</span>. Las V1 a V<span data-k="sisa">8</span> quedan abiertas: es la sisa.</li>
                 <li>Cose con hilo del mismo color, punto con punto, sin apretar.</li>
               </ul>
             </article>
             <article class="paso lleno">
               <h3>Falda</h3>
               <ol>
-                <li>Por el lado de fuera, engancha el hilo en el bajo de una espalda, en el 3.er pb contando desde el centro (dejas 2 pb de solape).</li>
-                <li>Recoge 11 pb en esa espalda, 18 en el delantero y 11 en la otra espalda. Son 40 pb. Ciérralos en redondo con 1 pd.</li>
-                <li>V1: 3 cad (cuentan como 1 pa), 1 pa en el mismo pb, 2 pa en cada uno de los 39 pb que quedan. 80 pa. Pd en la 3.ª cad.</li>
-                <li>V2 a V8: 3 cad, 1 pa en cada pa (80). Pd en la 3.ª cad.</li>
-                <li>V9: 1 pb en cada pa (80). Corta el hilo.</li>
+                <li>Por el lado de fuera, engancha el hilo en el bajo de una espalda, en el <span data-k="solapeOrd">3.er</span> pb contando desde el centro (dejas <span data-k="solape">2</span> pb de solape).</li>
+                <li>Recoge <span data-k="pickBack">11</span> pb en esa espalda, <span data-k="front">18</span> en el delantero y <span data-k="pickBack">11</span> en la otra espalda. Son <span data-k="pick">40</span> pb. Ciérralos en redondo con 1 pd.</li>
+                <li>V1: 3 cad (cuentan como 1 pa), 1 pa en el mismo pb, 2 pa en cada uno de los <span data-k="pickMenos">39</span> pb que quedan. <span data-k="falda">80</span> pa. Pd en la 3.ª cad.</li>
+                <li>V2 a V<span data-k="pa">8</span>: 3 cad, 1 pa en cada pa (<span data-k="falda">80</span>). Pd en la 3.ª cad.</li>
+                <li>V<span data-k="piquito">9</span>: (1 pb, 3 cad, 1 pb en el mismo pa, salta 1 pa) hasta el final. Son <span data-k="piquitos">40</span> piquitos. Corta el hilo.</li>
               </ol>
             </article>
             <article class="paso lleno">
@@ -437,8 +452,9 @@
               <ul>
                 <li>1 vuelta de pb por el escote y otra por cada sisa, sin apretar.</li>
                 <li>1 vuelta de pb por el centro de las dos espaldas, del escote a la cintura.</li>
-                <li>En una espalda, al hacer ese orillo, sustituye 1 pb por 4 cad a la altura de la V2 y otro a la altura de la V13: son las presillas.</li>
+                <li>En una espalda, al hacer ese orillo, sustituye 1 pb por 4 cad a la altura de la V2 y otro a la altura de la V<span data-k="presilla">13</span>: son las presillas.</li>
                 <li>Cose 2 botones de unos 8 mm en la otra espalda, a 2 pb del borde, justo enfrente de las presillas.</li>
+                <li>Lazo: monta 60 cad y anúdalo en la cintura, por delante.</li>
               </ul>
             </article>
           </div>
@@ -457,30 +473,30 @@
             <path d="M130 20 h28 v96 h-14 v-40 h-14 v40 h-14 v-96 z" fill="none" stroke="currentColor" stroke-width="2"></path>
             <path d="M158 20 h28 v96 h-14 v-40 h-14" fill="none" stroke="currentColor" stroke-width="2"></path>
           </svg>
-          <p>Pantalón y chaqueta. El pantalón sube por los pies: el pie tiene que medir unos 7 cm de contorno. Sin apretar el cordón, la cintura del pantalón mide unos 23 cm. La manga mide unos 8 cm y el contorno de la chaqueta, unos 24 cm.</p>
+          <p>Pantalón y chaqueta, sobre el mismo cuerpo. El pantalón sube por los pies (unos <span data-k="pie">7</span> cm). Sin apretar el cordón, la cintura mide unos <span data-k="cinturaPantalon">23</span> cm. La manga mide unos <span data-k="mangaCm">8</span> cm y el contorno de la chaqueta, unos <span data-k="chaquetaCm">24</span> cm.</p>
           <article class="paso">
             <h3>Pantalón, dos perneras</h3>
             <ol>
-              <li>Monta 16 cad y cierra en redondo con 1 pd, sin torcer la cadena.</li>
+              <li>Monta <span data-k="tobillo">16</span> cad y cierra en redondo con 1 pd, sin torcer la cadena.</li>
               <li>Teje en espiral, sin girar. Marca el primer pb y mueve el marcador en cada vuelta.</li>
-              <li>V1 a V8: 16 pb.</li>
-              <li>V9: (3 pb, aum) 4 veces. Quedan 20 pb.</li>
-              <li>V10 a V18: 20 pb. Corta el hilo. Haz la segunda pernera igual; no cortes el hilo de esta.</li>
-              <li>V19: 20 pb de la pernera en curso, 3 cad, 20 pb alrededor de la otra pernera, 3 cad. Son 46 puntos. Sigue en espiral.</li>
-              <li>V20 a V27: 46 pb.</li>
-              <li>V28 a V31: 46 pb tomando solo la hebra de atrás.</li>
-              <li>Cordón: monta 70 cad. Pásalo con la aguja lanera por la V28, un punto sí y uno no. Se anuda delante.</li>
+              <li>V1 a V<span data-k="tobilloHasta">8</span>: <span data-k="tobillo">16</span> pb.</li>
+              <li>V<span data-k="aumV">9</span>: <span data-k="aumTxt">(3 pb, aum) 4 veces</span>. Quedan <span data-k="musloSt">20</span> pb.</li>
+              <li>V<span data-k="musloDesde">10</span> a V<span data-k="entrepiernaV">18</span>: <span data-k="musloSt">20</span> pb. Corta el hilo. Haz la segunda pernera igual; no cortes el hilo de esta.</li>
+              <li>V<span data-k="union">19</span>: <span data-k="musloSt">20</span> pb de la pernera en curso, 3 cad, <span data-k="musloSt">20</span> pb alrededor de la otra pernera, 3 cad. Son <span data-k="cinturaSt">46</span> puntos. Sigue en espiral.</li>
+              <li>V<span data-k="tiroDesde">20</span> a V<span data-k="tiroHasta">28</span>: <span data-k="cinturaSt">46</span> pb.</li>
+              <li>V<span data-k="elasticoDesde">29</span> a V<span data-k="elasticoHasta">32</span>: <span data-k="cinturaSt">46</span> pb tomando solo la hebra de atrás.</li>
+              <li>Cordón: monta 70 cad. Pásalo con la aguja lanera por la V<span data-k="elasticoDesde">29</span>, un punto sí y uno no. Se anuda delante.</li>
             </ol>
           </article>
           <article class="paso">
             <h3>Chaqueta en raglán</h3>
             <ol>
               <li>Monta 25 cad. V1: 24 pb. Pon un marcador en los pb 4, 9, 16 y 21 (dejan 3 pb de delantero, 4 de manga, 6 de espalda, 4 de manga y 3 de delantero).</li>
-<li>V2 a V8, vuelta de aumento: teje en pb hasta el punto anterior al marcador, 2 pb en ese punto, 1 pb en el del marcador (pasa el marcador a este pb), 2 pb en el siguiente. Hazlo en los 4 marcadores. El resto, pb. Gira al acabar cada vuelta, con 1 cad.</li>
-                <li>Al acabar la V8: 10 pb en cada delantero, 18 en cada manga, 20 en la espalda, y 1 pb en cada marcador.</li>
-                <li>V9: teje los 10 pb del primer delantero y el pb de su marcador. Haz 2 cad. Salta los 18 pb de esa manga. Teje el marcador siguiente, los 20 pb de la espalda y el otro marcador. Haz 2 cad. Salta la otra manga. Teje el último marcador y los 10 pb del delantero. Quedan 44 pb y 4 cad.</li>
-                <li>V10 a V20: 1 pb en cada punto y en cada cad de la sisa. En la V10 ya son 48 pb, y siguen 48 hasta la V20.</li>
-                <li>Manga: engancha el hilo en la sisa. 18 pb de la manga que saltaste más 2 pb sobre las 2 cad (20). En espiral, 18 vueltas. En las vueltas 6 y 12: una dism al empezar la vuelta y otra en los 2 últimos puntos. El puño queda en 16 pb. Repite la otra manga.</li>
+<li>V2 a V<span data-k="aumCh">8</span>, vuelta de aumento: teje en pb hasta el punto anterior al marcador, 2 pb en ese punto, 1 pb en el del marcador (pasa el marcador a este pb), 2 pb en el siguiente. Hazlo en los 4 marcadores. El resto, pb. Gira al acabar cada vuelta, con 1 cad.</li>
+                <li>Al acabar la V<span data-k="aumCh">8</span>: <span data-k="delanteroCh">10</span> pb en cada delantero, <span data-k="mangaSt">18</span> en cada manga, <span data-k="espaldaCh">20</span> en la espalda, y 1 pb en cada marcador.</li>
+                <li>V<span data-k="separa">9</span>: teje los <span data-k="delanteroCh">10</span> pb del primer delantero y el pb de su marcador. Haz 2 cad. Salta los <span data-k="mangaSt">18</span> pb de esa manga. Teje el marcador siguiente, los <span data-k="espaldaCh">20</span> pb de la espalda y el otro marcador. Haz 2 cad. Salta la otra manga. Teje el último marcador y los <span data-k="delanteroCh">10</span> pb del delantero. Quedan <span data-k="cuerpoPb">44</span> pb y 4 cad.</li>
+                <li>V<span data-k="cuerpoDesde">10</span> a V<span data-k="cuerpoHasta">21</span>: 1 pb en cada punto y en cada cad de la sisa. En la V<span data-k="cuerpoDesde">10</span> ya son <span data-k="cuerpoSt">48</span> pb, y siguen <span data-k="cuerpoSt">48</span> hasta la V<span data-k="cuerpoHasta">21</span>.</li>
+                <li>Manga: engancha el hilo en la sisa. <span data-k="mangaSt">18</span> pb de la manga que saltaste más 2 pb sobre las 2 cad (<span data-k="mangaInicio">20</span>). En espiral, <span data-k="vueltasManga">18</span> vueltas. En las vueltas <span data-k="mengua1">6</span> y <span data-k="mengua2">12</span>: una dism al empezar la vuelta y otra en los 2 últimos puntos. El puño queda en <span data-k="puno">16</span> pb. Repite la otra manga.</li>
               <li>Orillo: 1 pb por cada vuelta de los dos delanteros y 1 pb por cada punto del escote. Teje 3 vueltas de pb. En la 2.ª, en un delantero, cambia 1 pb por 4 cad junto al escote y otro a mitad del cuerpo.</li>
               <li>Cose 2 botones de 8 mm en el otro delantero, enfrente de las presillas.</li>
             </ol>
@@ -500,7 +516,7 @@
           </article>
           <article>
             <strong class="num">2</strong>
-            <h3>Vestido</h3>
+            <h3>Vestido de novia</h3>
             <p>Con el vestido abierto por la espalda, mete las dos piernas por la falda y súbelo hasta la cintura. Solapa las espaldas unos 2 cm y abrocha los dos botones. La cabeza no tiene que pasar.</p>
           </article>
           <article>
@@ -563,6 +579,144 @@
           io.observe(s);
         });
       }
+
+      function num(id, fallo) {
+        var el = document.querySelector('[data-m="' + id + '"]');
+        var n = el ? Number(String(el.value).replace(",", ".")) : NaN;
+        if (!Number.isFinite(n) || n <= 0) n = fallo;
+        if (el) el.parentElement.setAttribute("data-n", String(n));
+        return n;
+      }
+      function par(n) { n = Math.round(n); return n - (n % 2); }
+      function clamp(n, a, b) { return Math.max(a, Math.min(b, n)); }
+      function poner(k, v) {
+        document.querySelectorAll('[data-k="' + k + '"]').forEach(function (el) {
+          el.textContent = String(v);
+        });
+      }
+      function tejer() {
+        var pecho = num("pecho", 16);
+        var cadera = num("cadera", 18);
+        var pie = num("pie", 7);
+        var hombroCintura = num("hombroCintura", 6.5);
+        var hombroBajo = num("hombroBajo", 17);
+        var cinturaTobillo = num("cinturaTobillo", 12);
+        var entrepierna = num("entrepierna", 8);
+        var manga = num("manga", 8);
+        var muslo = num("muslo", 8);
+        var altura = num("altura", 25);
+        ["cabeza", "cuello", "cintura", "brazo", "hombros"].forEach(function (id) { num(id, 8); });
+
+        var worn = Math.max(16, par((pecho + 4) * 2));
+        var total = worn + 4;
+        var front = par(Math.round(total * 18 / 44));
+        if (front < 8) front = 8;
+        if ((total - front) % 2) front -= 2;
+        var back = (total - front) / 2;
+        if (back < 6) { back = 6; front = total - back * 2; }
+        var hombro = Math.min(5, Math.floor((back - 1) / 2), Math.floor((front - 2) / 2));
+        if (hombro < 2) hombro = 2;
+        var bodice = clamp(Math.round(hombroCintura * 2.2), 8, 30);
+        var sisa = clamp(Math.round(bodice * 8 / 14), 4, bodice - 3);
+        var solape = back >= 8 ? 2 : 1;
+        var pickBack = back - solape;
+        var pick = front + pickBack * 2;
+        var falda = pick * 2;
+        var pa = clamp(Math.round((Math.max(4, hombroBajo - hombroCintura) - 0.5) * 0.8), 4, 24);
+        var pechoCm = worn / 2;
+        poner("altura", altura);
+        poner("pechoCm", pechoCm);
+        poner("largo", hombroBajo);
+        poner("bajoCm", Math.round(falda / 1.6));
+        poner("aviso", pechoCm + 0.5 >= cadera
+          ? "La cintura de la falda mide " + pechoCm + " cm y la cadera " + cadera + ": el vestido pasa."
+          : "La cintura de la falda mide " + pechoCm + " cm y la cadera " + cadera + ": no pasa. Sube el pecho o baja la cadera.");
+        poner("frontCad", front + 1);
+        poner("front", front);
+        poner("bodice", bodice);
+        poner("backCad", back + 1);
+        poner("back", back);
+        poner("hombro", hombro);
+        poner("cuelloD", front - hombro * 2);
+        poner("cuelloE", back - hombro);
+        poner("costura", sisa + 1);
+        poner("sisa", sisa);
+        poner("solape", solape);
+        poner("solapeOrd", solape + 1 === 3 ? "3.er" : (solape + 1) + ".º");
+        poner("pickBack", pickBack);
+        poner("pick", pick);
+        poner("pickMenos", pick - 1);
+        poner("falda", falda);
+        poner("pa", pa);
+        poner("piquito", pa + 1);
+        poner("piquitos", falda / 2);
+        poner("presilla", bodice - 1);
+
+        var tobillo = Math.max(8, Math.round((pie + 1) * 2 / 4) * 4);
+        var musloSt = par((muslo + 2) * 2);
+        if (musloSt < tobillo + 4) musloSt = tobillo + 4;
+        var inc = musloSt - tobillo;
+        var grupo = Math.floor(tobillo / inc);
+        if (grupo < 2) {
+          inc = Math.max(1, Math.floor(tobillo / 2));
+          grupo = Math.floor(tobillo / inc);
+          musloSt = tobillo + inc;
+        }
+        var sobra = tobillo - grupo * inc;
+        var aumTxt = "(" + (grupo - 1) + " pb, aum) " + inc + " veces" + (sobra ? " y " + sobra + " pb" : "");
+        var entre = clamp(Math.round(entrepierna * 2.2), 8, 40);
+        var tobilloHasta = clamp(Math.round(entre * 8 / 18), 4, entre - 3);
+        var aumV = tobilloHasta + 1;
+        var union = entre + 1;
+        var tiro = clamp(Math.round((cinturaTobillo - entrepierna) * 2.2), 4, 20);
+        var tiroHasta = union + tiro;
+        var elasticoDesde = tiroHasta + 1;
+        var cinturaSt = musloSt * 2 + 6;
+        poner("pie", pie);
+        poner("cinturaPantalon", cinturaSt / 2);
+        poner("tobillo", tobillo);
+        poner("tobilloHasta", tobilloHasta);
+        poner("aumV", aumV);
+        poner("aumTxt", aumTxt);
+        poner("musloSt", musloSt);
+        poner("musloDesde", aumV + 1);
+        poner("entrepiernaV", entre);
+        poner("union", union);
+        poner("cinturaSt", cinturaSt);
+        poner("tiroDesde", union + 1);
+        poner("tiroHasta", tiroHasta);
+        poner("elasticoDesde", elasticoDesde);
+        poner("elasticoHasta", elasticoDesde + 3);
+
+        var n = clamp(Math.round(((pecho + 8) * 2 - 20) / 4), 4, 12);
+        var frente = 3 + n;
+        var mangaSt = 4 + 2 * n;
+        var espalda = 6 + 2 * n;
+        var separa = n + 2;
+        var bodyRows = clamp(Math.round((hombroCintura + 3 - (1 + n) / 2.2) * 2.2), 8, 28);
+        var vueltasManga = clamp(Math.round(manga * 2.2), 8, 36);
+        var cuerpoPb = frente * 2 + espalda + 4;
+        poner("mangaCm", manga);
+        poner("chaquetaCm", (cuerpoPb + 4) / 2);
+        poner("aumCh", 1 + n);
+        poner("delanteroCh", frente);
+        poner("mangaSt", mangaSt);
+        poner("espaldaCh", espalda);
+        poner("separa", separa);
+        poner("cuerpoPb", cuerpoPb);
+        poner("cuerpoDesde", separa + 1);
+        poner("cuerpoHasta", n + 1 + bodyRows);
+        poner("cuerpoSt", cuerpoPb + 4);
+        poner("mangaInicio", mangaSt + 2);
+        poner("vueltasManga", vueltasManga);
+        poner("mengua1", Math.max(3, Math.round(vueltasManga / 3)));
+        poner("mengua2", Math.max(6, Math.round(vueltasManga * 2 / 3)));
+        poner("puno", Math.max(8, mangaSt + 2 - 4));
+      }
+      document.querySelectorAll("[data-m]").forEach(function (el) {
+        el.addEventListener("input", tejer);
+      });
+      tejer();
 
       var tabla = document.querySelector("#medidas table");
       var cuerpo = tabla.tBodies[0];
