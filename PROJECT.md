@@ -8,6 +8,7 @@
 
 ## Estado
 - `index.html` trae el patrón de un vestido y un traje (pantalón y chaqueta) para una muñeca de crochet de 25 cm, y cómo ponérselos.
+- Vista en GitHub Pages (main, `/`). Antes la URL respondía 404 porque Pages no estaba activado.
 - Supuesto: no había medidas en el pedido. La talla está fijada; la tabla sirve para comprobar la muñeca antes de tejer.
 
 ## Stack
