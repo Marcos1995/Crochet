@@ -1,0 +1,98 @@
+{
+  ".cursor/agents/explorar.md": {
+    "mtime": 1792320692.4300392,
+    "seen": 1792322762.3302126,
+    "ast_hash": "6e208cfe0f5f10ed1c52eca68a3e5a5f",
+    "semantic_hash": ""
+  },
+  ".cursor/agents/implementar.md": {
+    "mtime": 1792320692.4310372,
+    "seen": 1792322762.3302126,
+    "ast_hash": "6e3d9911e1261b8a72f5b380803cc22d",
+    "semantic_hash": ""
+  },
+  ".cursor/skills/debug/SKILL.md": {
+    "mtime": 1792320692.4290383,
+    "seen": 1792322762.3302126,
+    "ast_hash": "31fbb3729bb6c43bb61f8ab136ad9854",
+    "semantic_hash": ""
+  },
+  ".cursor/skills/jev/SKILL.md": {
+    "mtime": 1792320692.4042022,
+    "seen": 1792322762.3302126,
+    "ast_hash": "c3316b3a3660cc86f81c89e6e583c440",
+    "semantic_hash": ""
+  },
+  ".cursor/skills/laya/SKILL.md": {
+    "mtime": 1792320692.4032023,
+    "seen": 1792322762.3302126,
+    "ast_hash": "1bc4782d5ba49d165ab91392a9a917b7",
+    "semantic_hash": ""
+  },
+  ".cursor/skills/review/SKILL.md": {
+    "mtime": 1792320692.4032023,
+    "seen": 1792322762.3302126,
+    "ast_hash": "d8fa8d4e21e3307fdd7d92d161d38bce",
+    "semantic_hash": ""
+  },
+  ".cursor/skills/tablas/SKILL.md": {
+    "mtime": 1792320692.4300392,
+    "seen": 1792322762.3302126,
+    "ast_hash": "0213fecac7b24fa349260bd3416068c8",
+    "semantic_hash": ""
+  },
+  ".cursor/skills/verify/SKILL.md": {
+    "mtime": 1792320692.428036,
+    "seen": 1792322762.3302126,
+    "ast_hash": "3ebb042e1baf3773e53ac9a5a0c77574",
+    "semantic_hash": ""
+  },
+  ".cursor/skills/web-design/SKILL.md": {
+    "mtime": 1792320692.411364,
+    "seen": 1792322762.3302126,
+    "ast_hash": "17711d158eaebfa1f7dfd190ad80c946",
+    "semantic_hash": ""
+  },
+  ".cursor/skills/web-design/dashboard.md": {
+    "mtime": 1792320692.4219275,
+    "seen": 1792322762.3302126,
+    "ast_hash": "9018e55f141fc57e29363fa030dcf904",
+    "semantic_hash": ""
+  },
+  "AGENTS.md": {
+    "mtime": 1792320692.4310372,
+    "seen": 1792322762.3302126,
+    "ast_hash": "eab47c20bc345153038783c028fd117d",
+    "semantic_hash": ""
+  },
+  "DESIGN.md": {
+    "mtime": 1792321551.0459995,
+    "seen": 1792322762.3302126,
+    "ast_hash": "45377f267ceb2af4b4c39d568f299f40",
+    "semantic_hash": ""
+  },
+  "PROJECT.md": {
+    "mtime": 1792321556.9053466,
+    "seen": 1792322762.3302126,
+    "ast_hash": "08e9607ea9ff922d85a3498043a2fe7d",
+    "semantic_hash": ""
+  },
+  "README.md": {
+    "mtime": 1792320692.462549,
+    "seen": 1792322762.3302126,
+    "ast_hash": "6e19bfb7a2b41ecd08931f191f63f18d",
+    "semantic_hash": ""
+  },
+  "docs/DECISIONES.md": {
+    "mtime": 1792321552.1715157,
+    "seen": 1792322762.3302126,
+    "ast_hash": "fe736612d7410f4bf07454deda409c7b",
+    "semantic_hash": ""
+  },
+  "index.html": {
+    "mtime": 1792322608.5035884,
+    "seen": 1792322762.3302126,
+    "ast_hash": "56fbc068e2cfae159f98c4123926f580",
+    "semantic_hash": ""
+  }
+}

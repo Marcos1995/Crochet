@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vestido y traje para una muñeca de 25 cm</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --fondo: #e7f2ea;
+      --tinta: #032612;
+      --papel: #ffffff;
+      --linea: #c5dccd;
+      --suave: #24523a;
+      --boton: #0A3D22;
+      --boton-tinta: #f3fff6;
+      --anillo: transparent;
+      --riel: #0A3D22;
+      color-scheme: light;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-tema="claro"]) {
+        --fondo: #04150c;
+        --tinta: #e8f6ec;
+        --papel: #123d26;
+        --linea: #3e8f66;
+        --suave: #c5e0d0;
+        --anillo: #18E667;
+        --riel: #18E667;
+        color-scheme: dark;
+      }
+    }
+    :root[data-tema="oscuro"] {
+      --fondo: #04150c;
+      --tinta: #e8f6ec;
+      --papel: #123d26;
+      --linea: #3e8f66;
+      --suave: #c5e0d0;
+      --anillo: #18E667;
+      --riel: #18E667;
+      color-scheme: dark;
+    }
+    :root[data-tema="claro"] {
+      --fondo: #e7f2ea;
+      --tinta: #032612;
+      --papel: #ffffff;
+      --linea: #c5dccd;
+      --suave: #24523a;
+      --anillo: transparent;
+      --riel: #0A3D22;
+      color-scheme: light;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Public Sans", "Segoe UI", sans-serif;
+      font-weight: 400;
+      background: var(--fondo);
+      color: var(--tinta);
+      line-height: 1.45;
+    }
+    h1, h2, h3 { font-weight: 800; letter-spacing: -0.04em; line-height: 0.95; margin: 0; }
+    h1 { font-size: clamp(2.5rem, 8vw, 5.4rem); max-width: 11ch; }
+    h2 { font-size: clamp(2rem, 5vw, 3.4rem); max-width: 16ch; transform-origin: left center; }
+    h3 { font-size: 1.35rem; letter-spacing: -0.03em; line-height: 1.1; }
+    p, li { font-size: 1.05rem; }
+    p { max-width: 62ch; }
+    a { color: inherit; }
+    :focus-visible { outline: 3px solid #18E667; outline-offset: 3px; }
+    .barra, .ancho { width: min(72rem, calc(100% - 2rem)); margin: 0 auto; }
+    .barra {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+    }
+    .marca { font-weight: 800; letter-spacing: -0.04em; text-decoration: none; font-size: 1.1rem; }
+    .tema {
+      width: 4.4rem;
+      height: 2.15rem;
+      border: 0;
+      border-radius: 999px;
+      background: var(--boton);
+      box-shadow: 0 0 0 2px var(--anillo);
+      position: relative;
+      padding: 0;
+      cursor: pointer;
+    }
+    .tema svg { position: absolute; top: 0.42rem; width: 1.2rem; height: 1.2rem; }
+    .tema .sol { left: 0.42rem; color: #f3fff6; }
+    .tema .luna { right: 0.42rem; color: #f3fff6; }
+    .punto {
+      position: absolute;
+      top: 0.28rem;
+      left: 0.28rem;
+      width: 1.58rem;
+      height: 1.58rem;
+      border-radius: 50%;
+      background: #18E667;
+      transition: transform 0.28s ease;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-tema="claro"]) .punto { transform: translateX(2.25rem); }
+    }
+    :root[data-tema="oscuro"] .punto { transform: translateX(2.25rem); }
+    :root[data-tema="claro"] .punto { transform: translateX(0); }
+    .hero { padding-bottom: 2.5rem; }
+    .hero-grid {
+      display: grid;
+      gap: 1.25rem;
+      align-items: end;
+    }
+    .cifra {
+      background: #18E667;
+      color: #032612;
+      border-radius: 1.5rem;
+      padding: 1rem 1.15rem 1.15rem;
+      width: min(100%, 16rem);
+    }
+    .cifra span { display: block; font-weight: 600; font-size: 0.95rem; }
+    .cifra strong {
+      display: block;
+      font-size: clamp(4.6rem, 18vw, 7.5rem);
+      font-weight: 800;
+      letter-spacing: -0.06em;
+      line-height: 0.8;
+      margin: 0.15rem 0;
+    }
+    .gancho { width: 4.5rem; height: auto; }
+    .accion {
+      display: inline-block;
+      background: var(--boton);
+      color: var(--boton-tinta);
+      box-shadow: 0 0 0 2px var(--anillo);
+      text-decoration: none;
+      font-weight: 800;
+      padding: 0.9rem 1.25rem;
+      border-radius: 999px;
+    }
+    .enlace { font-weight: 600; margin-left: 1rem; }
+    .acciones { margin: 1.2rem 0 0; }
+    .suave { color: var(--suave); }
+    #medidas { background: var(--papel); }
+    .medidas-grid {
+      display: grid;
+      gap: 1.25rem;
+      align-items: start;
+    }
+    .muneca { width: 7.5rem; height: auto; }
+    .tabla-scroll { width: 100%; max-width: 100%; }
+    table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+    caption {
+      text-align: left;
+      font-weight: 800;
+      padding: 0 0 0.7rem;
+      caption-side: top;
+    }
+    th, td {
+      text-align: left;
+      vertical-align: top;
+      padding: 0.55rem 0.4rem;
+      border-bottom: 1px solid var(--linea);
+      background: var(--papel);
+      overflow-wrap: anywhere;
+    }
+    th:nth-child(1), td:nth-child(1) { width: 38%; }
+    th:nth-child(2), td:nth-child(2) { width: 3.2rem; }
+    th button {
+      font: inherit;
+      font-weight: 800;
+      color: inherit;
+      background: transparent;
+      border: 0;
+      padding: 0;
+      width: 100%;
+      text-align: left;
+      cursor: pointer;
+      white-space: normal;
+    }
+    td:nth-child(2), th:nth-child(2) { white-space: nowrap; font-variant-numeric: tabular-nums; }
+    #vestido { background: #18E667; color: #032612; }
+    #vestido .suave { color: #032612; }
+    .pasos, .traje-grid, .orden {
+      display: grid;
+      gap: 0.85rem;
+    }
+    .paso, .orden article {
+      background: var(--papel);
+      color: var(--tinta);
+      border: 1px solid var(--linea);
+      border-radius: 1.25rem;
+      padding: 1rem 1.1rem 1.15rem;
+    }
+    #vestido .paso {
+      background: #ffffff;
+      color: #032612;
+      border: 2px solid #032612;
+    }
+    .paso h3, .orden h3 { margin-bottom: 0.45rem; }
+    .paso ol, .paso ul, .orden ol { margin: 0.3rem 0 0; padding-left: 1.15rem; }
+    .paso li + li, .orden li + li { margin-top: 0.35rem; }
+    .vestido-dibujo, .traje-dibujo { width: min(100%, 16rem); height: auto; }
+    #traje { border-top: 0.7rem solid var(--riel); }
+    .orden article strong.num {
+      display: block;
+      font-size: clamp(2.8rem, 8vw, 4.5rem);
+      line-height: 0.85;
+      letter-spacing: -0.06em;
+      margin-bottom: 0.35rem;
+    }
+    footer {
+      width: min(72rem, calc(100% - 2rem));
+      margin: 0 auto;
+      padding: 1.5rem 0 2rem;
+    }
+    @media (min-width: 768px) {
+      .gancho { width: 9rem; }
+      .hero-grid { grid-template-columns: auto minmax(0, 1fr) auto; }
+      .medidas-grid { grid-template-columns: 8.5rem 1fr; }
+      .pasos { grid-template-columns: 1fr 1fr; }
+      .pasos .lleno { grid-column: 1 / -1; }
+      .traje-grid { grid-template-columns: 1fr 1fr; align-items: start; }
+      .orden { grid-template-columns: repeat(3, 1fr); }
+      h1 { max-width: 12ch; }
+    }
+    @media (min-width: 1280px) {
+      .ancho, .barra, footer { width: min(72rem, calc(100% - 4rem)); }
+      .hero { padding-top: 0.5rem; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .punto { transition: none; }
+    }
+    @media (prefers-reduced-motion: no-preference) {
+      .js section:not(.vista) .bloque { opacity: 0; transform: translateY(1.1rem); }
+      .js section.vista .bloque { opacity: 1; transform: none; transition: opacity 0.55s ease, transform 0.55s ease; }
+      .js section:not(.vista) h2 { transform: scale(0.94); }
+      .js section.vista h2 { transform: scale(1); transition: transform 0.6s ease; }
+    }
+  </style>
+</head>
+<body>
+  <header class="barra">
+    <a class="marca" href="#inicio">Crochet</a>
+    <button type="button" class="tema" id="tema" role="switch" aria-checked="false" aria-label="Tema oscuro">
+      <svg class="sol" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="4"></circle>
+        <path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"></path>
+      </svg>
+      <svg class="luna" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
+        <path d="M15.5 3.5a8.5 8.5 0 1 0 5 14.2A9 9 0 0 1 15.5 3.5z"></path>
+      </svg>
+      <span class="punto"></span>
+    </button>
+  </header>
+
+  <main id="inicio">
+    <section class="hero">
+      <div class="ancho hero-grid">
+        <div class="cifra">
+          <span>Altura de la muñeca</span>
+          <strong>25</strong>
+          <span>centímetros</span>
+        </div>
+        <div>
+          <h1>Vestido y traje para una muñeca de 25 cm</h1>
+          <p>Para las muñecas de tu curúmi. No había medidas en el encargo: el patrón es para una muñeca de crochet ya armada, de 25 cm de alto, pecho de 16 cm y cadera de 18 cm. El vestido y el traje son dos conjuntos.</p>
+          <p class="suave">Aguja de 3,0 mm y algodón de grosor medio (grupo 3). Un ovillo de 50 g alcanza para el vestido; otro, para el pantalón y la chaqueta. Muestra: 20 puntos bajos y 22 vueltas = 10 cm. 16 puntos altos y 8 vueltas = 10 cm.</p>
+          <p class="acciones"><a class="accion" href="#vestido">Empezar el vestido</a> <a class="enlace" href="#traje">Ver el traje</a></p>
+        </div>
+        <svg class="gancho" viewBox="0 0 80 140" role="img" aria-label="Gancho de crochet">
+          <path d="M48 8c10 8 14 18 10 28-6 16-22 20-22 36 0 14 16 18 16 32 0 10-8 18-20 22" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"></path>
+          <path d="M32 118c8 10 22 12 30 6" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"></path>
+        </svg>
+      </div>
+    </section>
+
+    <section id="medidas">
+      <div class="ancho">
+        <h2>Mide antes de tejer</h2>
+        <div class="bloque medidas-grid">
+          <svg class="muneca" viewBox="0 0 80 210" role="img" aria-label="Silueta de la muñeca de 25 cm">
+            <circle cx="40" cy="22" r="14" fill="none" stroke="currentColor" stroke-width="2"></circle>
+            <path d="M28 36 v28 l-14 36 8 2 12-28 v42 l-8 48 h10 l6-40 6 40 h10 l-8-48 v-42 l12 28 8-2 -14-36 v-28" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"></path>
+            <path d="M62 18 h12 M62 70 h12 M62 118 h12" fill="none" stroke="currentColor" stroke-width="1.5"></path>
+          </svg>
+          <div>
+            <div class="tabla-scroll">
+              <table>
+                <caption>Medidas de la muñeca. Si el pecho no ronda los 16 cm, este patrón no le sienta.</caption>
+                <thead>
+                  <tr>
+                    <th aria-sort="none"><button type="button">Pieza <span aria-hidden="true"></span></button></th>
+                    <th aria-sort="none"><button type="button">cm <span aria-hidden="true"></span></button></th>
+                    <th aria-sort="none"><button type="button">Para qué ropa <span aria-hidden="true"></span></button></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td data-n="Altura">Altura</td>
+                    <td data-n="25">25</td>
+                    <td data-n="Talla de la muñeca">Talla de la muñeca</td>
+                  </tr>
+                  <tr>
+                    <td data-n="Cabeza">Cabeza, contorno</td>
+                    <td data-n="27">27</td>
+                    <td data-n="La ropa no pasa por la cabeza">La ropa no pasa por la cabeza</td>
+                  </tr>
+                  <tr>
+                    <td data-n="Cuello">Cuello, contorno</td>
+                    <td data-n="10">10</td>
+                    <td data-n="Escote">Escote del vestido y de la chaqueta</td>
+                  </tr>
+                  <tr>
+                    <td data-n="Pecho">Pecho, contorno</td>
+                    <td data-n="16">16</td>
+                    <td data-n="Cuerpo">Cuerpo del vestido y de la chaqueta</td>
+                  </tr>
+                  <tr>
+                    <td data-n="Cintura">Cintura, contorno</td>
+                    <td data-n="14">14</td>
+                    <td data-n="Falda y cordón">Arranque de la falda y cordón del pantalón</td>
+                  </tr>
+                  <tr>
+                    <td data-n="Cadera">Cadera, contorno</td>
+                    <td data-n="18">18</td>
+                    <td data-n="Que pase la falda">La falda y el pantalón tienen que pasar</td>
+                  </tr>
+                  <tr>
+                    <td data-n="Pie">Pie, contorno</td>
+                    <td data-n="7">7</td>
+                    <td data-n="Entrada de la pernera">Por aquí entra la pernera</td>
+                  </tr>
+                  <tr>
+                    <td data-n="Hombro a cintura">Hombro a cintura</td>
+                    <td data-n="6.5">6,5</td>
+                    <td data-n="Alto del cuerpo">Alto del cuerpo del vestido</td>
+                  </tr>
+                  <tr>
+                    <td data-n="Hombro al bajo">Hombro al bajo</td>
+                    <td data-n="17">17</td>
+                    <td data-n="Largo del vestido">Largo del vestido</td>
+                  </tr>
+                  <tr>
+                    <td data-n="Cintura al tobillo">Cintura al tobillo</td>
+                    <td data-n="12">12</td>
+                    <td data-n="Largo del pantalón">Largo del pantalón</td>
+                  </tr>
+                  <tr>
+                    <td data-n="Entrepierna">Entrepierna</td>
+                    <td data-n="8">8</td>
+                    <td data-n="Pernera">Largo de cada pernera antes de unir</td>
+                  </tr>
+                  <tr>
+                    <td data-n="Hombro a la muñeca">Hombro a la muñeca del brazo</td>
+                    <td data-n="8">8</td>
+                    <td data-n="Manga">Largo de la manga</td>
+                  </tr>
+                  <tr>
+                    <td data-n="Brazo">Brazo, contorno</td>
+                    <td data-n="6.5">6,5</td>
+                    <td data-n="Sisa y puño">Sisa y puño</td>
+                  </tr>
+                  <tr>
+                    <td data-n="Muslo">Muslo, contorno</td>
+                    <td data-n="8">8</td>
+                    <td data-n="Ancho de pernera">Ancho de la pernera</td>
+                  </tr>
+                  <tr>
+                    <td data-n="Hombros">De hombro a hombro</td>
+                    <td data-n="8">8</td>
+                    <td data-n="Espalda de la chaqueta">Espalda de la chaqueta</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p>Abreviaturas: cad cadeneta, pb punto bajo, pa punto alto, pd punto deslizado, aum 2 pb en el mismo punto, dism 2 pb cerrados juntos. La cadeneta de giro no cuenta como punto. Cuenta al final de cada vuelta: si el número no coincide, deshaz esa vuelta.</p>
+            <p>Muestra obligatoria: monta 21 cad y teje 22 vueltas de 20 pb. Tiene que medir 10 × 10 cm. Si pasa de 10,5 cm, usa una aguja más fina. Si no llega a 9,5 cm, una más gruesa.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="vestido">
+      <div class="ancho">
+        <h2>El vestido</h2>
+        <div class="bloque">
+          <p>Abre por la espalda, así no hace falta pasarlo por la cabeza. Cerrado, el pecho mide unos 20 cm y el largo desde el hombro unos 17 cm. El bajo, unos 50 cm.</p>
+          <svg class="vestido-dibujo" viewBox="0 0 200 150" role="img" aria-label="Tres rectángulos del cuerpo y la falda, con la espalda abierta">
+            <rect x="8" y="8" width="48" height="52" fill="none" stroke="#032612" stroke-width="2"></rect>
+            <rect x="76" y="8" width="48" height="52" fill="none" stroke="#032612" stroke-width="2"></rect>
+            <rect x="144" y="8" width="48" height="52" fill="none" stroke="#032612" stroke-width="2"></rect>
+            <path d="M24 78 h152 l18 64 h-188 z" fill="none" stroke="#032612" stroke-width="2"></path>
+          </svg>
+          <div class="pasos">
+            <article class="paso">
+              <h3>Delantero</h3>
+              <ol>
+                <li>Monta 19 cad.</li>
+                <li>V1: pb en la 2.ª cad desde la aguja y en cada cad. Quedan 18 pb.</li>
+                <li>V2 a V14: gira, 1 cad, 18 pb.</li>
+                <li>Corta el hilo.</li>
+              </ol>
+            </article>
+            <article class="paso">
+              <h3>Espalda, dos piezas</h3>
+              <ol>
+                <li>Monta 14 cad.</li>
+                <li>V1: 13 pb.</li>
+                <li>V2 a V14: 13 pb.</li>
+                <li>Corta el hilo. Repite la segunda espalda.</li>
+              </ol>
+            </article>
+            <article class="paso lleno">
+              <h3>Hombros y costados</h3>
+              <ul>
+                <li>En el borde de arriba de cada espalda, cose 5 pb del lado del costado (no del centro) a 5 pb de un extremo del delantero. El escote libre queda en 8 pb del delantero y 8 pb de cada espalda.</li>
+                <li>Cose cada costado desde la V9 hasta la V14. Las V1 a V8 quedan abiertas: es la sisa.</li>
+                <li>Cose con hilo del mismo color, punto con punto, sin apretar.</li>
+              </ul>
+            </article>
+            <article class="paso lleno">
+              <h3>Falda</h3>
+              <ol>
+                <li>Por el lado de fuera, engancha el hilo en el bajo de una espalda, en el 3.er pb contando desde el centro (dejas 2 pb de solape).</li>
+                <li>Recoge 11 pb en esa espalda, 18 en el delantero y 11 en la otra espalda. Son 40 pb. Ciérralos en redondo con 1 pd.</li>
+                <li>V1: 3 cad (cuentan como 1 pa), 1 pa en el mismo pb, 2 pa en cada uno de los 39 pb que quedan. 80 pa. Pd en la 3.ª cad.</li>
+                <li>V2 a V8: 3 cad, 1 pa en cada pa (80). Pd en la 3.ª cad.</li>
+                <li>V9: 1 pb en cada pa (80). Corta el hilo.</li>
+              </ol>
+            </article>
+            <article class="paso lleno">
+              <h3>Orillo y botones</h3>
+              <ul>
+                <li>1 vuelta de pb por el escote y otra por cada sisa, sin apretar.</li>
+                <li>1 vuelta de pb por el centro de las dos espaldas, del escote a la cintura.</li>
+                <li>En una espalda, al hacer ese orillo, sustituye 1 pb por 4 cad a la altura de la V2 y otro a la altura de la V13: son las presillas.</li>
+                <li>Cose 2 botones de unos 8 mm en la otra espalda, a 2 pb del borde, justo enfrente de las presillas.</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="traje">
+      <div class="ancho">
+        <h2>El traje</h2>
+        <div class="bloque traje-grid">
+          <svg class="traje-dibujo" viewBox="0 0 220 150" role="img" aria-label="Chaqueta abierta y pantalón de dos perneras">
+            <path d="M18 28 h40 l8 18 v70 h-56 v-70 z" fill="none" stroke="currentColor" stroke-width="2"></path>
+            <path d="M18 28 l-12 36 h14" fill="none" stroke="currentColor" stroke-width="2"></path>
+            <path d="M66 28 l12 36 h-14" fill="none" stroke="currentColor" stroke-width="2"></path>
+            <path d="M130 20 h28 v96 h-14 v-40 h-14 v40 h-14 v-96 z" fill="none" stroke="currentColor" stroke-width="2"></path>
+            <path d="M158 20 h28 v96 h-14 v-40 h-14" fill="none" stroke="currentColor" stroke-width="2"></path>
+          </svg>
+          <p>Pantalón y chaqueta. El pantalón sube por los pies: el pie tiene que medir unos 7 cm de contorno. Sin apretar el cordón, la cintura del pantalón mide unos 23 cm. La manga mide unos 8 cm y el contorno de la chaqueta, unos 24 cm.</p>
+          <article class="paso">
+            <h3>Pantalón, dos perneras</h3>
+            <ol>
+              <li>Monta 16 cad y cierra en redondo con 1 pd, sin torcer la cadena.</li>
+              <li>Teje en espiral, sin girar. Marca el primer pb y mueve el marcador en cada vuelta.</li>
+              <li>V1 a V8: 16 pb.</li>
+              <li>V9: (3 pb, aum) 4 veces. Quedan 20 pb.</li>
+              <li>V10 a V18: 20 pb. Corta el hilo. Haz la segunda pernera igual; no cortes el hilo de esta.</li>
+              <li>V19: 20 pb de la pernera en curso, 3 cad, 20 pb alrededor de la otra pernera, 3 cad. Son 46 puntos. Sigue en espiral.</li>
+              <li>V20 a V27: 46 pb.</li>
+              <li>V28 a V31: 46 pb tomando solo la hebra de atrás.</li>
+              <li>Cordón: monta 70 cad. Pásalo con la aguja lanera por la V28, un punto sí y uno no. Se anuda delante.</li>
+            </ol>
+          </article>
+          <article class="paso">
+            <h3>Chaqueta en raglán</h3>
+            <ol>
+              <li>Monta 25 cad. V1: 24 pb. Pon un marcador en los pb 4, 9, 16 y 21 (dejan 3 pb de delantero, 4 de manga, 6 de espalda, 4 de manga y 3 de delantero).</li>
+<li>V2 a V8, vuelta de aumento: teje en pb hasta el punto anterior al marcador, 2 pb en ese punto, 1 pb en el del marcador (pasa el marcador a este pb), 2 pb en el siguiente. Hazlo en los 4 marcadores. El resto, pb. Gira al acabar cada vuelta, con 1 cad.</li>
+                <li>Al acabar la V8: 10 pb en cada delantero, 18 en cada manga, 20 en la espalda, y 1 pb en cada marcador.</li>
+                <li>V9: teje los 10 pb del primer delantero y el pb de su marcador. Haz 2 cad. Salta los 18 pb de esa manga. Teje el marcador siguiente, los 20 pb de la espalda y el otro marcador. Haz 2 cad. Salta la otra manga. Teje el último marcador y los 10 pb del delantero. Quedan 44 pb y 4 cad.</li>
+                <li>V10 a V20: 1 pb en cada punto y en cada cad de la sisa. En la V10 ya son 48 pb, y siguen 48 hasta la V20.</li>
+                <li>Manga: engancha el hilo en la sisa. 18 pb de la manga que saltaste más 2 pb sobre las 2 cad (20). En espiral, 18 vueltas. En las vueltas 6 y 12: una dism al empezar la vuelta y otra en los 2 últimos puntos. El puño queda en 16 pb. Repite la otra manga.</li>
+              <li>Orillo: 1 pb por cada vuelta de los dos delanteros y 1 pb por cada punto del escote. Teje 3 vueltas de pb. En la 2.ª, en un delantero, cambia 1 pb por 4 cad junto al escote y otro a mitad del cuerpo.</li>
+              <li>Cose 2 botones de 8 mm en el otro delantero, enfrente de las presillas.</li>
+            </ol>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="poner">
+      <div class="ancho">
+        <h2>Cómo ponérselo</h2>
+        <div class="bloque orden">
+          <article>
+            <strong class="num">1</strong>
+            <h3>Pantalón</h3>
+            <p>Tumba la muñeca. Mete un pie en cada pernera y sube el pantalón hasta la cintura, sin estirar el tejido. Anuda el cordón encima. Si el pie no entra, este pantalón no es para esa muñeca.</p>
+          </article>
+          <article>
+            <strong class="num">2</strong>
+            <h3>Vestido</h3>
+            <p>Con el vestido abierto por la espalda, mete las dos piernas por la falda y súbelo hasta la cintura. Solapa las espaldas unos 2 cm y abrocha los dos botones. La cabeza no tiene que pasar.</p>
+          </article>
+          <article>
+            <strong class="num">3</strong>
+            <h3>Chaqueta</h3>
+            <p>Mete un brazo en cada manga. El cuerpo queda abierto delante. Abrocha los dos botones. Si llevas el vestido debajo, la sisa va holgada a propósito.</p>
+          </article>
+        </div>
+        <p class="bloque">El vestido puede ir solo. El traje es pantalón y chaqueta, también solo. Si pones los dos, el orden es pantalón, vestido y chaqueta.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <a href="https://github.com/Marcos1995/Crochet">Código en GitHub</a>
+  </footer>
+
+  <script>
+    (function () {
+      var raiz = document.documentElement;
+      raiz.classList.add("js");
+      var guardado = localStorage.getItem("tema");
+      var oscuro = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      if (guardado === "oscuro" || guardado === "claro") {
+        raiz.setAttribute("data-tema", guardado);
+        oscuro = guardado === "oscuro";
+      }
+      var tema = document.getElementById("tema");
+      function pintar(esOscuro) {
+        tema.setAttribute("aria-checked", esOscuro ? "true" : "false");
+        tema.setAttribute("aria-label", esOscuro ? "Tema claro" : "Tema oscuro");
+      }
+      pintar(raiz.getAttribute("data-tema") === "oscuro" || (!raiz.hasAttribute("data-tema") && oscuro));
+      tema.addEventListener("click", function () {
+        var ahora = raiz.getAttribute("data-tema");
+        var sistema = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        var activo = ahora ? ahora === "oscuro" : sistema;
+        var siguiente = activo ? "claro" : "oscuro";
+        raiz.setAttribute("data-tema", siguiente);
+        localStorage.setItem("tema", siguiente);
+        pintar(siguiente === "oscuro");
+      });
+
+      var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      var secciones = document.querySelectorAll("section");
+      function enPantalla(s) {
+        var r = s.getBoundingClientRect();
+        return r.top < window.innerHeight && r.bottom > 0;
+      }
+      if (reduce || !("IntersectionObserver" in window)) {
+        secciones.forEach(function (s) { s.classList.add("vista"); });
+      } else {
+        var io = new IntersectionObserver(function (entradas) {
+          entradas.forEach(function (e) {
+            if (e.isIntersecting) e.target.classList.add("vista");
+          });
+        }, { threshold: 0 });
+        secciones.forEach(function (s) {
+          if (enPantalla(s)) s.classList.add("vista");
+          io.observe(s);
+        });
+      }
+
+      var tabla = document.querySelector("#medidas table");
+      var cuerpo = tabla.tBodies[0];
+      var botones = tabla.querySelectorAll("th button");
+      botones.forEach(function (btn, i) {
+        btn.addEventListener("click", function () {
+          var th = btn.parentElement;
+          var era = th.getAttribute("aria-sort");
+          var dir = era === "descending" ? 1 : -1;
+          tabla.querySelectorAll("th").forEach(function (h) {
+            h.setAttribute("aria-sort", "none");
+            h.querySelector("span").textContent = "";
+          });
+          th.setAttribute("aria-sort", dir < 0 ? "descending" : "ascending");
+          btn.querySelector("span").textContent = dir < 0 ? " ↓" : " ↑";
+          var filas = Array.prototype.slice.call(cuerpo.rows);
+          filas.sort(function (a, b) {
+            var x = a.cells[i].getAttribute("data-n");
+            var y = b.cells[i].getAttribute("data-n");
+            var nx = Number(x);
+            var ny = Number(y);
+            var c = Number.isFinite(nx) && Number.isFinite(ny)
+              ? nx - ny
+              : x.localeCompare(y, "es", { sensitivity: "base" });
+            return c * dir;
+          });
+          filas.forEach(function (f) { cuerpo.appendChild(f); });
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

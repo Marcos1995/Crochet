@@ -1,0 +1,11 @@
+---
+description: Vista en el navegador y GitHub Pages
+alwaysApply: true
+---
+
+# Vista HTML
+
+- El repo debe abrirse en el navegador: HTML real (normalmente `index.html` en la raíz) que muestre la app o una demo usable.
+- Repo público: la web es `https://<owner>.github.io/<repo>/` (Pages desde `main` en `/`); inclúyela en HECHO. `github.com` es el código.
+- Cualquier UI (crear o retocar, incluida un dashboard): skill `web-design`. Stitch solo si esa página aún no tiene HTML, o si piden rehacer el diseño, cambiar el estilo o rehacerlo. Si no, se edita el HTML. El aspecto está solo en esa skill.
+- Nunca htmlpreview, githack, Vercel, Netlify ni otros hosts de preview.
