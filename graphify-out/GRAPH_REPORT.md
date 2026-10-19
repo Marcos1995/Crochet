@@ -1,17 +1,17 @@
-# Graph Report - Crochet  (2026-10-18)
+# Graph Report - Crochet  (2026-10-19)
 
 ## Corpus Check
-- 15 files · ~7,173 words
+- 16 files · ~8,332 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 2 file(s) not represented in the graph (top: .mdc 2)
 
 ## Summary
-- 60 nodes · 45 edges · 15 communities (10 shown, 5 thin omitted)
+- 61 nodes · 45 edges · 16 communities (10 shown, 6 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `b2b33a5f`
+- Built from commit: `bbfeceef`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -45,7 +45,7 @@
 ## Surprising Connections (you probably didn't know these)
 - None detected - all connections are within the same source files.
 
-## Communities (15 total, 5 thin omitted)
+## Communities (16 total, 6 thin omitted)
 
 ### Community 0 - "Debug"
 Cohesion: 0.29
@@ -89,8 +89,8 @@ Nodes (3): Docs, Project, Setup
 
 ## Knowledge Gaps
 - **35 isolated node(s):** `1. Root cause`, `2. Compare`, `3. Hypothesis`, `4. Fix`, `Red flags → back to step 1` (+30 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 50 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
-- **5 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 51 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **6 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
